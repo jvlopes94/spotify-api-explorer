@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My Top Songs</title>
+</head>
+<body>
+<h1>My Top 50 Tracks</h1>
+
+{% if songs %}
+    <ul>
+        {% for track in songs %}
+            <li>
+                <strong>{{ track.name }}</strong> by
+                {% for artist in track.artists %}
+                    {{ artist.name }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No songs found or not logged in.</p>
+{% endif %}
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+{% load socialaccount %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Spotify Auth</title>
+</head>
+
+<body>
+{% if user.is_authenticated %}
+    <div>
+        <h1>Spotify API Explorer</h1>
+        <ul>
+            <li><a href="{% url 'songs' %}" class="btn btn-primary">Songs</a></li>
+            <li>Artists</li>
+        </ul>
+    </div>
+{% else %}
+    <div>
+        <h1>Welcome to Spotify API Explorer</h1>
+        <a href="{% provider_login_url 'spotify' %}">Login with Spotify</a>
+    </div>
+{% endif %}
+</body>
+</html>
